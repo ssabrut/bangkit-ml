@@ -17,13 +17,13 @@ class RegressionModel:
 
     def one_hot_data(self):
         for city in self.cities:
-            if self.data['daerah'].values[0] == city:
+            if self.data['daerah'].values[0].lower() == city.lower():
                 self.data[city] = 1
             else:
                 self.data[city] = 0
 
         for plant in self.plants:
-            if self.data['tanaman'].values[0] == plant:
+            if self.data['tanaman'].values[0].lower() == plant.lower():
                 self.data[plant] = 1
             else:
                 self.data[plant] = 0
