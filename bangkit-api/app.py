@@ -56,8 +56,8 @@ class RegressionApi(Resource):
 
             with app.app_context():
                 data = pd.DataFrame(
-                    [[_luas_panen, _produksi, _daerah]],
-                    columns=['luas_panen', 'produksi', 'daerah']
+                    [[_luas_panen, _produksi, _daerah, _tanaman]],
+                    columns=['luas_panen', 'produksi', 'daerah', 'tanaman']
                 )
 
                 regression_model = RegressionModel(data=data)
