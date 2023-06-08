@@ -52,6 +52,7 @@ class RegressionApi(Resource):
             _luas_panen = _json['luas_panen']  # float
             _produksi = _json['produksi']  # float
             _daerah = _json['daerah']
+            _tanaman = _json['tanaman'] # ['Cabai Rawit', 'Bawang merah', 'Bawang putih', 'Kentang', 'Kubis']
 
             with app.app_context():
                 data = pd.DataFrame(
