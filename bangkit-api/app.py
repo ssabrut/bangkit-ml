@@ -46,7 +46,7 @@ class RecommendationApi(Resource):
 
 
 class RegressionApi(Resource):
-    def post(self)
+    def post(self):
         try:
             _json = request.json
             _luas_panen = _json['luas_panen']  # float
