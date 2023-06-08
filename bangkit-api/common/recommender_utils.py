@@ -51,6 +51,7 @@ class RecommederModel:
         self.preprocess()
         test_data = ' '.join(self.data.values)
         vectorizer = TfidfVectorizer()
+        self.anchor_data = self.anchor_data.drop_duplicates(['plant_clean'])
         tfidf_matrix = vectorizer.fit_transform(self.anchor_data['feature'])
         tfidf = tfidf_matrix.toarray()
         plant_representation = self.model.predict(tfidf)
@@ -59,7 +60,7 @@ class RecommederModel:
         test_representation = self.model.predict(tfidf)
         similar_plants = cosine_similarity(test_representation, plant_representation)
         recommended_plant_index = tf.argmax(similar_plants)
-        recommended_plant = self.anchor_data.iloc[recommended_plant_index]['plant_clean'].drop_duplicates().values[0].split()
+        recommended_plant = self.anchor_data.iloc[recommended_plant_index]['plant_clean'].values
         return recommended_plant
 
 
