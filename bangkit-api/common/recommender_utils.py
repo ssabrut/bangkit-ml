@@ -45,7 +45,6 @@ class RecommederModel:
     def preprocess(self):
         self.data['avg_temp'] = self.data['avg_temp'].apply(create_avg_temp_classification)
         self.data['humid'] = self.data['humid'].apply(create_humidity_classification)
-        self.data = self.data.lower()
 
     def pipeline(self):
         self.preprocess()
